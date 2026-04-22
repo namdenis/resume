@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нам Денис Олегович | Операционный директор & Event-продюсер</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --accent-dark: #1e40af;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --surface: #1e293b;
+            --surface-light: #334155;
+            --border: #334155;
+            --gradient-1: #3b82f6;
+            --gradient-2: #6366f1;
+            --gradient-3: #8b5cf6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            color: white;
+            border: none;
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--surface-light);
+            border-color: var(--accent);
+        }
+
+        /* Hero Visual - Photo */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .photo-container {
+            position: relative;
+            width: 320px;
+            height: 400px;
+        }
+
+        .photo-frame {
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            opacity: 0.3;
+            transform: translate(12px, 12px);
+        }
+
+        .photo-main {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 2px solid var(--border);
+        }
+
+        .photo-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+
+        .photo-badge {
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            white-space: nowrap;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .float-item {
+            position: absolute;
+            padding: 0.75rem 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            animation: float 6s ease-in-out infinite;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .float-item:nth-child(1) { top: 5%; left: -15%; animation-delay: 0s; }
+        .float-item:nth-child(2) { top: 25%; right: -20%; animation-delay: 1.5s; }
+        .float-item:nth-child(3) { bottom: 25%; left: -10%; animation-delay: 3s; }
+        .float-item:nth-child(4) { bottom: 45%; right: -15%; animation-delay: 4.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--gradient-1), var(--gradient-2));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--primary);
+            margin-left: -5px;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-role {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-company {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        .timeline-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metric-card {
+            background: var(--surface-light);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.25rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .skill-card:hover::before {
+            opacity: 1;
+        }
+
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-list {
+            list-style: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .skill-list li {
+            padding: 0.25rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list li::before {
+            content: '›';
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Projects Gallery */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        .project-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(99, 102, 241, 0.04));
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--accent-light);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-client {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-stat {
+            text-align: center;
+        }
+
+        .project-stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .project-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* HR Tech Showcase */
+        .tech-showcase {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-showcase::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08), transparent 70%);
+            pointer-events: none;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .tech-item {
+            background: var(--surface-light);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .tech-item-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-item-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .tech-item-title {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .tech-item-desc {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .tech-metric {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tech-metric-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .tech-metric-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.03), rgba(99, 102, 241, 0.03));
+            border-top: 1px solid var(--border);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--text);
+            display: block;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+        }
+
+        .contact-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        .contact-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .photo-container {
+                width: 260px;
+                height: 320px;
+                margin: 0 auto;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                padding-left: 1rem;
+            }
+
+            .timeline-item {
+                padding-left: 1rem;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            nav, .floating-elements {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 2rem 0;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 2rem 0;
+                page-break-inside: avoid;
+            }
+
+            body {
+                background: white;
+                color: black;
+            }
+
+            .timeline::before {
+                background: #333;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">НАМ ДЕНИС</div>
+            <ul class="nav-links">
+                <li><a href="#about">Обо мне</a></li>
+                <li><a href="#experience">Опыт</a></li>
+                <li><a href="#projects">Проекты</a></li>
+                <li><a href="#skills">Навыки</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="hero-bg"></div>
+        <div class="hero-grid"></div>
+
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <i class="fas fa-circle" style="font-size: 8px;"></i>
+                    Открыт к предложениям в Москве
+                </div>
+
+                <h1>
+                    Операционный<br>
+                    <span>директор</span> &<br>
+                    Event-продюсер
+                </h1>
+
+                <p class="hero-subtitle">
+                    12 лет в управлении проектами, event-продюсировании и цифровой трансформации. 
+                    Гибридный профиль: классический event + HR-tech автоматизация + digital-продюсирование.
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">12+</div>
+                        <div class="stat-label">лет опыта</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">22</div>
+                        <div class="stat-label">проектов в работе</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5млн₽</div>
+                        <div class="stat-label">бюджет/мес</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">7000+</div>
+                        <div class="stat-label">трансферов ЧМ</div>
+                    </div>
+                </div>
+
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-handshake"></i>
+                        Предложить вакансию
+                    </a>
+                    <a href="https://hh.ru" target="_blank" class="btn btn-secondary">
+                        <i class="fas fa-download"></i>
+                        Скачать PDF
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="floating-elements">
+                    <div class="float-item">FIFA World Cup</div>
+                    <div class="float-item">HR-tech CRM</div>
+                    <div class="float-item">K-pop 15K</div>
+                    <div class="float-item">Team Lead 5+</div>
+                </div>
+
+                <div class="photo-container">
+                    <div class="photo-frame"></div>
+                    <div class="photo-main">
+                        <img src="photo.jpg" alt="Нам Денис Олегович">
+                    </div>
+                    <div class="photo-badge">Нам Денис Олегович</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Карьерный путь</div>
+                <h2 class="section-title">Опыт работы</h2>
+                <p class="section-desc">
+                    От логистики и международных спортивных мегапроектов до HR-tech автоматизации и продюсирования топовых блогеров.
+                </p>
+            </div>
+
+            <div class="timeline">
+                <!-- Current -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">Июнь 2024 — настоящее время</div>
+                    <div class="timeline-role">Старший продюсер / Team Lead продюсерской группы</div>
+                    <div class="timeline-company">ООО «Инсайт Люди» (Nsight People), Москва</div>
+                    <div class="timeline-content">
+                        <p style="color: var(--text-muted); margin-bottom: 1rem;">
+                            Управление группой из 5 продюсеров, курирование 22 активных проектов (блогеры/артисты), бюджет группы 2–5 млн ₽/мес.
+                        </p>
+                        <div class="timeline-metrics">
+                            <div class="metric-card">
+                                <div class="metric-value">22</div>
+                                <div class="metric-label">проектов в работе</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">5</div>
+                                <div class="metric-label">продюсеров в команде</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">5млн₽</div>
+                                <div class="metric-label">пиковый бюджет/мес</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <strong style="color: var(--accent-light);">Ключевые кейсы:</strong>
+                            <ul style="color: var(--text-muted); margin-top: 0.5rem; padding-left: 1.2rem;">
+                                <li><strong>Максим Храмцов</strong> (олимпийский чемпион ТНТ) — контракт 3 года, лоббирование в шоу «Титаны» + «Погоня», рост аудитории Instagram 20к→30к, Telegram 0→5к, VK 0→3к</li>
+                                <li><strong>Лео Канделаки</strong> — 5 релизов, 1 клип (линейный продюсер), 20+ сниппетов, 5 фотосессий</li>
+                                <li><strong>Сергей Зайцев</strong> (ведущий «Утро ТНТ», «Погода ТНТ») — шоу «Смартфон» (премьера май 2026), привлечение спонсоров</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cheil -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">Сентябрь 2023 — Июнь 2024</div>
+                    <div class="timeline-role">Менеджер отдела ритейл / Event-менеджер</div>
+                    <div class="timeline-company">ООО «Чейл Рус» (Cheil Russia, Samsung Group), Москва</div>
+                    <div class="timeline-content">
+                        <p style="color: var(--text-muted);">
+                            Коммуникация с клиентами, контроль бюджетов и качества, разработка рекламных материалов с креативными отделами, координация подрядчиков, анализ эффективности кампаний и оптимизация.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- MDKM HR + Event -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">Август 2018 — Июнь 2024</div>
+                    <div class="timeline-role">Заместитель директора / Руководитель HR-направления / Event-продюсер</div>
+                    <div class="timeline-company">АНО «Молодёжное Движение Корейцев Москвы» (МДКМ), Москва</div>
+                    <div class="timeline-content">
+                        <div style="margin-bottom: 1.5rem;">
+                            <strong style="color: var(--accent-light); display: block; margin-bottom: 0.5rem;">🚀 HR-трансформация и цифровая автоматизация</strong>
+                            <p style="color: var(--text-muted); margin-bottom: 1rem;">
+                                Полная трансформация HR-процессов: от ручного управления к масштабируемой цифровой экосистеме. Успешный опыт внедрён партнёрской организацией «Shinsaede» в Узбекистане.
+                            </p>
+                            <div class="timeline-metrics">
+                                <div class="metric-card">
+                                    <div class="metric-value">60+</div>
+                                    <div class="metric-label">резидентов через адаптацию</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">90%</div>
+                                    <div class="metric-label">retention rate</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">-70%</div>
+                                    <div class="metric-label">текучесть кадров</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">196</div>
+                                    <div class="metric-label">заявок через чат-бот</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <strong style="color: var(--accent-light); display: block; margin-bottom: 0.5rem;">🎭 Event-продюсирование</strong>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
+                                <div style="background: var(--surface-light); padding: 0.75rem; border-radius: 8px;">
+                                    <div style="font-weight: 600;">K-pop Dive</div>
+                                    <div style="font-size: 0.85rem; color: var(--text-muted);">Организатор, ведущий. Площадки: Известия Холл, VK Stadium, МТС Live Hall, TAU</div>
+                                </div>
+                                <div style="background: var(--surface-light); padding: 0.75rem; border-radius: 8px;">
+                                    <div style="font-weight: 600;">Форум «Москва 2030»</div>
+                                    <div style="font-size: 0.85rem; color: var(--text-muted);">Турнир K-pop кавер-танца, 3000 зрителей, иностранное жюри</div>
+                                </div>
+                                <div style="background: var(--surface-light); padding: 0.75rem; border-radius: 8px;">
+                                    <div style="font-weight: 600;">«Окно в Азию»</div>
+                                    <div style="font-size: 0.85rem; color: var(--text-muted);">1500 гостей, организатор, ведущий</div>
+                                </div>
+                                <div style="background: var(--surface-light); padding: 0.75rem; border-radius: 8px;">
+                                    <div style="font-weight: 600;">K-pop дни</div>
+                                    <div style="font-size: 0.85rem; color: var(--text-muted);">15 000 гостей, Кинозавод «Москино»</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lapwing -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">Июнь 2017 — Август 2018</div>
+                    <div class="timeline-role">Руководитель диспетчерской службы / Event-логистика</div>
+                    <div class="timeline-company">Lapwing International, Москва</div>
+                    <div class="timeline-content">
+                        <p style="color: var(--text-muted); margin-bottom: 1rem;">
+                            Управление диспетчерской службой в период подготовки и проведения Кубка Конфедераций FIFA 2017 и Чемпионата мира по футболу FIFA 2018.
+                        </p>
+                        <div class="timeline-metrics">
+                            <div class="metric-card">
+                                <div class="metric-value">7000+</div>
+                                <div class="metric-label">трансферов за ЧМ 2018</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">10</div>
+                                <div class="metric-label">подрядчиков на КК 2017</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service-Pro -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">Март 2013 — Март 2016</div>
+                    <div class="timeline-role">Менеджер по логистике / ВЭД</div>
+                    <div class="timeline-company">ООО «Сервис-Про», Москва</div>
+                    <div class="timeline-content">
+                        <p style="color: var(--text-muted); margin-bottom: 1rem;">
+                            Организация логистических процессов в нефтегазовой сфере (TD Williamson Eurasia). ВЭД, таможенное оформление, авто/авиа/жд перевозки, складские услуги.
+                        </p>
+                        <div class="timeline-metrics">
+                            <div class="metric-card">
+                                <div class="metric-value">3000+</div>
+                                <div class="metric-label">грузов доставлено</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">100+</div>
+                                <div class="metric-label">поставок в тундру/север</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jet Set -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">Январь 2014 — Февраль 2014</div>
+                    <div class="timeline-role">Координатор автопарка (Coach Coordinator)</div>
+                    <div class="timeline-company">Jet Set Sports, Сочи (проектная)</div>
+                    <div class="timeline-content">
+                        <p style="color: var(--text-muted); margin-bottom: 1rem;">
+                            Олимпийские игры 2014 в Сочи. Координация транспорта для клиентов компании, разработка системы с нуля.
+                        </p>
+                        <div class="timeline-metrics">
+                            <div class="metric-card">
+                                <div class="metric-value">3000+</div>
+                                <div class="metric-label">рейсов</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">24/7</div>
+                                <div class="metric-label">бесперебойная работа</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HR Tech Showcase -->
+    <section style="background: var(--surface);">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">HR-tech разработка</div>
+                <h2 class="section-title">Цифровая экосистема МДКМ</h2>
+                <p class="section-desc">
+                    CRM/ERP система, разработанная с нуля на JSON + Cursor IDE + MCP. Перенос принципов коммерческих SaaS на некоммерческий сектор.
+                </p>
+            </div>
+
+            <div class="tech-showcase fade-in">
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-item-header">
+                            <div class="tech-item-icon">📊</div>
+                            <div class="tech-item-title">Рейтинг и активность</div>
+                        </div>
+                        <div class="tech-item-desc">
+                            Активное отслеживание рейтинга резидентов, мониторинг занятости и активности в реальном времени.
+                        </div>
+                    </div>
+
+                    <div class="tech-item">
+                        <div class="tech-item-header">
+                            <div class="tech-item-icon">✅</div>
+                            <div class="tech-item-title">Чекин-система</div>
+                        </div>
+                        <div class="tech-item-desc">
+                            Чекин на мероприятиях с автоматическим начислением баллов. Геймификация вовлечённости.
+                        </div>
+                        <div class="tech-metric">
+                            <span class="tech-metric-label">Автоматизация</span>
+                            <span class="tech-metric-value">100%</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-item">
+                        <div class="tech-item-header">
+                            <div class="tech-item-icon">🤖</div>
+                            <div class="tech-item-title">ИИ-ассистент</div>
+                        </div>
+                        <div class="tech-item-desc">
+                            Голосовые заметки, автоматическая постановка встреч и задач, умные напоминания.
+                        </div>
+                    </div>
+
+                    <div class="tech-item">
+                        <div class="tech-item-header">
+                            <div class="tech-item-icon">📅</div>
+                            <div class="tech-item-title">Управление задачами</div>
+                        </div>
+                        <div class="tech-item-desc">
+                            Постановка задач, отслеживание дедлайнов, автоматические напоминания и замечания за просрочки.
+                        </div>
+                    </div>
+
+                    <div class="tech-item">
+                        <div class="tech-item-header">
+                            <div class="tech-item-icon">👥</div>
+                            <div class="tech-item-title">Ролевая модель</div>
+                        </div>
+                        <div class="tech-item-desc">
+                            Гибкое назначение руководителей, координаторов, бухгалтеров, директоров с разными уровнями доступа.
+                        </div>
+                    </div>
+
+                    <div class="tech-item">
+                        <div class="tech-item-header">
+                            <div class="tech-item-icon">📱</div>
+                            <div class="tech-item-title">Автопостинг</div>
+                        </div>
+                        <div class="tech-item-desc">
+                            Автоматическая публикация постов в Telegram. Интеграция с социальными сетями.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Компетенции</div>
+                <h2 class="section-title">Навыки и инструменты</h2>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🎯</div>
+                    <div class="skill-title">Управление и операции</div>
+                    <ul class="skill-list">
+                        <li>Управление проектами: полный цикл, Agile/Waterfall</li>
+                        <li>Бюджетирование: сметы, контроль, оптимизация</li>
+                        <li>Team Lead: менторинг, 1-to-1, конфликт-менеджмент</li>
+                        <li>Кросс-функциональная координация</li>
+                        <li>Найм и адаптация персонала</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🎬</div>
+                    <div class="skill-title">Event-продюсирование</div>
+                    <ul class="skill-list">
+                        <li>Полный цикл продакшена: от брифа до релиза</li>
+                        <li>Массовые мероприятия: 50–15 000 гостей</li>
+                        <li>Международные проекты и координация</li>
+                        <li>Логистика мероприятий и подрядчики</li>
+                        <li>Работа с ТВ-шоу и медиа-площадками</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">💻</div>
+                    <div class="skill-title">HR-tech и автоматизация</div>
+                    <ul class="skill-list">
+                        <li>Разработка CRM/ERP систем с нуля</li>
+                        <li>Cursor IDE + Model Context Protocol (MCP)</li>
+                        <li>AI-инструменты: Gemini AI, Chat GPT</li>
+                        <li>Чат-боты для рекрутинга и автоматизации</li>
+                        <li>Аналитика: метрики, дашборды, отчётность</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🎨</div>
+                    <div class="skill-title">Digital и креатив</div>
+                    <ul class="skill-list">
+                        <li>MS Office / Google Workspace (продвинутый)</li>
+                        <li>Excel: сводные таблицы, формулы, дашборды</li>
+                        <li>Figma: просмотр макетов, базовая работа</li>
+                        <li>CRM: Salesforce (средний уровень)</li>
+                        <li>1С:Управление торговлей (пользователь)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem; text-align: center;">
+                <div style="display: inline-flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;">
+                    <span class="tag">VS Code</span>
+                    <span class="tag">JSON</span>
+                    <span class="tag">Telegram API</span>
+                    <span class="tag">Автопостинг</span>
+                    <span class="tag">Геймификация</span>
+                    <span class="tag">Popsters</span>
+                    <span class="tag">LiveDune</span>
+                    <span class="tag">Английский B2</span>
+                    <span class="tag">Корейский базовый</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" style="background: var(--surface);">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Портфолио</div>
+                <h2 class="section-title">Избранные проекты</h2>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-tag">Digital / Музыка</div>
+                        <div class="project-title">Лео Канделаки</div>
+                        <div class="project-client">Продюсирование артиста</div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="project-stat-value">5</div>
+                                <div class="project-stat-label">релизов</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="project-stat-value">1</div>
+                                <div class="project-stat-label">клип</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="project-stat-value">20+</div>
+                                <div class="project-stat-label">сниппетов</div>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            Полный цикл продюсирования: от стратегии до релиза. Линейный продюсер клипа, исполнительный продюсер сниппетов, организация 5 фотосессий.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-tag">Спорт / ТВ</div>
+                        <div class="project-title">Максим Храмцов</div>
+                        <div class="project-client">Олимпийский чемпион ТНТ</div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="project-stat-value">3 года</div>
+                                <div class="project-stat-label">контракт</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="project-stat-value">+50%</div>
+                                <div class="project-stat-label">рост Instagram</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="project-stat-value">2</div>
+                                <div class="project-stat-label">ТВ-шоу</div>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            Первый в России олимпийский чемпион по тхэквондо. Лоббирование участия в шоу «Титаны» и «Погоня» с финансовыми выгодами для агентства. Рост аудитории во всех соцсетях.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-tag">Event / Массовый</div>
+                        <div class="project-title">K-pop дни</div>
+                        <div class="project-client">Форум «Территория будущего: Москва 2030»</div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="project-stat-value">15K</div>
+                                <div class="project-stat-label">гостей</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="project-stat-value">4</div>
+                                <div class="project-stat-label">площадки</div>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            Крупнейший кей-поп фестиваль в России. Организация на площадке Кинозавод «Москино». Полный цикл: концепция, подрядчики, логистика, координация.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-tag">HR-tech</div>
+                        <div class="project-title">CRM/ERP МДКМ</div>
+                        <div class="project-client">АНО «МДКМ»</div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="project-stat-value">60+</div>
+                                <div class="project-stat-label">пользователей</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="project-stat-value">-70%</div>
+                                <div class="project-stat-label">текучесть</div>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            Разработка с нуля на JSON + Cursor IDE. Полноценная цифровая экосистема: задачи, чекины, ИИ-ассистент, автопостинг, ролевая модель, отчётность. Внедрена в Узбекистане.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-tag">ТВ / Шоу</div>
+                        <div class="project-title">Шоу «Смартфон»</div>
+                        <div class="project-client">Сергей Зайцев</div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="project-stat-value">2026</div>
+                                <div class="project-stat-label">премьера</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="project-stat-value">Эксклюзив</div>
+                                <div class="project-stat-label">формат</div>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            Производство эксклюзивного шоу для ведущего «Утро ТНТ» и «Погода ТНТ». Поиск партнёров и спонсоров, полный цикл продюсирования.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-tag">Спорт / Международный</div>
+                        <div class="project-title">FIFA World Cup 2018</div>
+                        <div class="project-client">Lapwing International</div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="project-stat-value">7000+</div>
+                                <div class="project-stat-label">трансферов</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="project-stat-value">100%</div>
+                                <div class="project-stat-label">удовлетворённость</div>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            Руководство диспетчерской службой. Координация 10+ подрядчиков, переговоры с Оргкомитетом FIFA, тренинги водителей, оперативное решение чрезвычайных ситуаций.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Образование</div>
+                <h2 class="section-title">Учебные заведения</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🎓</div>
+                    <div class="skill-title">Московский финансово-промышленный университет «Синергия»</div>
+                    <ul class="skill-list">
+                        <li>Менеджмент, Event-менеджер</li>
+                        <li>Бакалавр, 2022</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">📚</div>
+                    <div class="skill-title">Мастерская новых медиа</div>
+                    <ul class="skill-list">
+                        <li>Управление событиями</li>
+                        <li>Повышение квалификации, 2026 (в процессе)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Testimonials Section -->
+    <section id="testimonials" style="background: var(--surface);">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Рекомендации</div>
+                <h2 class="section-title">Международные рекомендательные письма</h2>
+                <p class="section-desc">
+                    Подтверждённые рекомендации от руководителей международных компаний по итогам работы на Олимпийских играх 2014 и Чемпионате мира FIFA 2018.
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 1.5rem;">
+                <!-- Testimonial 1: Marc Middlemas -->
+                <div class="skill-card fade-in" style="position: relative;">
+                    <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">🇬🇧</div>
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.1rem;">Marc Middlemas</div>
+                            <div style="color: var(--accent-light); font-size: 0.9rem;">International Head of Transportation</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem;">Lapwing International Ltd., London</div>
+                        </div>
+                    </div>
+                    <div style="background: var(--surface-light); border-radius: 12px; padding: 1.25rem; border-left: 3px solid var(--accent); margin-bottom: 1rem;">
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; font-style: italic;">
+                            «Denis played a key part managing our Fleet & Dispatch Department for the FIFA WORLD CUP 2018. This included communication, live tracking and reconciliation for approx. <strong style="color: var(--text);">7000 vehicle movements</strong>.
+                        </p>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; font-style: italic; margin-top: 0.75rem;">
+                            The Directors, management and all involved thoroughly enjoyed working with Denis and came to know him as a <strong style="color: var(--text);">truly valuable asset to any team</strong>. He is honest, dependable, highly dedicated and incredibly hard-working.
+                        </p>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; font-style: italic; margin-top: 0.75rem;">
+                            Without a doubt, I will have no hesitation to employ Denis on future projects.»
+                        </p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--surface-light); display: flex; align-items: center; justify-content: center; font-size: 0.85rem;">✓</div>
+                        <span style="color: var(--text-muted); font-size: 0.85rem;">Подписано · Лондон, Великобритания</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2: Lapwing Team -->
+                <div class="skill-card fade-in" style="position: relative;">
+                    <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">🏆</div>
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.1rem;">Lapwing International Team</div>
+                            <div style="color: var(--accent-light); font-size: 0.9rem;">Directors & Management</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem;">Confederations Cup 2017, Russia</div>
+                        </div>
+                    </div>
+                    <div style="background: var(--surface-light); border-radius: 12px; padding: 1.25rem; border-left: 3px solid var(--accent); margin-bottom: 1rem;">
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; font-style: italic;">
+                            «Denis was a transport specialist in a transport division, was working closely with drivers and suppliers, our internal team of hosts, client's representatives. Also, he was responsible for producing time-scheduling of transfers in database, tracking movements during the day and supporting hot line for clients on a regular basis.
+                        </p>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; font-style: italic; margin-top: 0.75rem;">
+                            He is <strong style="color: var(--text);">responsible, trustworthy, stress-resistant, attentive and hard-working</strong>. His interpersonal and communication skills have allowed him to develop productive working relationships with suppliers, clients and our staff. He is a real team player.
+                        </p>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; font-style: italic; margin-top: 0.75rem;">
+                            Denis has the amazing ability to work effectively with huge flow of information – he is good at structuring, analysing and counting, creating reports and filling all details correctly.»
+                        </p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--surface-light); display: flex; align-items: center; justify-content: center; font-size: 0.85rem;">✓</div>
+                        <span style="color: var(--text-muted); font-size: 0.85rem;">Подписано · Magnus Leask, George Blake, Stepan Kolesnichenko, Anastasiya Seregina</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3: Tracie Carlsund -->
+                <div class="skill-card fade-in" style="position: relative;">
+                    <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">🇺🇸</div>
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.1rem;">Tracie Carlsund</div>
+                            <div style="color: var(--accent-light); font-size: 0.9rem;">Director, Staffing</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem;">Jet Set Sports, Los Angeles</div>
+                        </div>
+                    </div>
+                    <div style="background: var(--surface-light); border-radius: 12px; padding: 1.25rem; border-left: 3px solid var(--accent); margin-bottom: 1rem;">
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; font-style: italic;">
+                            «As a result of your hard work, spirit and commitment, you delivered the <strong style="color: var(--text);">highest level of service to our guests</strong>, and made the Sochi 2014 Olympic Winter Games, a successful event.
+                        </p>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; font-style: italic; margin-top: 0.75rem;">
+                            While the flame burned for 17 days, inspiring athletes' performances and uniting the world, it was the moment when the 5th Ring of the Olympic Symbol opened during Closing Ceremony, creating a powerful and lasting legacy. It brought smiles to people's faces through your hard work.
+                        </p>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; font-style: italic; margin-top: 0.75rem;">
+                            Jet Set Sports and CoSport are legendary for enthusiastic and hard-working staff, which is sure to remain in the minds and hearts of our guests and clients for years to come.»
+                        </p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--surface-light); display: flex; align-items: center; justify-content: center; font-size: 0.85rem;">✓</div>
+                        <span style="color: var(--text-muted); font-size: 0.85rem;">Подписано · Официальный поставщик гостеприимства Олимпиады</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4: Michael A. Aguilar -->
+                <div class="skill-card fade-in" style="position: relative;">
+                    <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">🇺🇸</div>
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.1rem;">Michael A. Aguilar</div>
+                            <div style="color: var(--accent-light); font-size: 0.9rem;">President</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem;">Five Tool Group, Inc., Las Vegas</div>
+                        </div>
+                    </div>
+                    <div style="background: var(--surface-light); border-radius: 12px; padding: 1.25rem; border-left: 3px solid var(--accent); margin-bottom: 1rem;">
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; font-style: italic;">
+                            «                        <p>Mr. Nam was an <strong>indispensable part of Jet Set Sport's success</strong> at the XXII Olympic Winter Games, providing vital support in the management of sixty (60) coach buses that served multiple clients throughout the entire Olympic theatre.</p>
+                        <p>He is <strong>analytical, detail-oriented, and tireless</strong> in his commitment to client satisfaction. Mr. Nam's work was essential in ensuring that our coach provider had accurate, complete and timely information as to our client's needs.</p>
+                        <p>I strongly recommend Mr. Nam to any future employer and look forward to working with him again.</p>
+                    </div>
+                    <div class="testimonial-verify">
+                        <div class="testimonial-verify-icon">✓</div>
+                        <span class="testimonial-verify-text">Подписано · Президент компании</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary stats -->
+            <div style="margin-top: 3rem; background: var(--surface-light); border-radius: 16px; padding: 2rem; border: 1px solid var(--border); text-align: center;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem;">
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 800; color: var(--accent);">4</div>
+                        <div style="color: var(--text-muted); font-size: 0.9rem;">рекомендательных письма</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 800; color: var(--accent);">3</div>
+                        <div style="color: var(--text-muted); font-size: 0.9rem;">страны (Великобритания, США, Россия)</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 800; color: var(--accent);">2</div>
+                        <div style="color: var(--text-muted); font-size: 0.9rem;">Олимпиады и ЧМ по футболу</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 800; color: var(--accent);">100%</div>
+                        <div style="color: var(--text-muted); font-size: 0.9rem;">готовность рекомендовать</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Образование</div>
+                <h2 class="section-title">Учебные заведения</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🎓</div>
+                    <div class="skill-title">Московский финансово-промышленный университет «Синергия»</div>
+                    <ul class="skill-list">
+                        <li>Менеджмент, Event-менеджер</li>
+                        <li>Бакалавр, 2022</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">📚</div>
+                    <div class="skill-title">Мастерская новых медиа</div>
+                    <ul class="skill-list">
+                        <li>Управление событиями</li>
+                        <li>Повышение квалификации, 2026 (в процессе)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Контакты</div>
+                <h2 class="section-title">Давайте работать вместе</h2>
+                <p class="section-desc">
+                    Открыт к предложениям на позицию Операционного директора, Event-директора или HR-tech руководителя в Москве. Гибридный формат.
+                </p>
+            </div>
+
+            <div class="contact-grid fade-in">
+                <a href="tel:+79850878878" class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-label">Телефон</div>
+                    <div class="contact-value">+7 (985) 087-88-78</div>
+                </a>
+
+                <a href="mailto:nam.denis1992@gmail.com" class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">nam.denis1992@gmail.com</div>
+                </a>
+
+                <a href="https://t.me/denisnam92" target="_blank" class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <div class="contact-label">Telegram</div>
+                    <div class="contact-value">@denisnam92</div>
+                </a>
+
+                <div class="contact-card" style="cursor: default;">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-label">Локация</div>
+                    <div class="contact-value">Москва, гибрид</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <div style="display: inline-block; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem 2rem;">
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Ожидания по зарплате</div>
+                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent);">от 230 000 ₽ на руки</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Целевой уровень через год: 350 000 ₽</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Нам Денис Олегович. Операционный директор | Event-продюсер | HR-tech архитектор</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">Москва · Гибрид · Готов к командировкам</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade in animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Parallax effect for floating elements
+        document.addEventListener('mousemove', (e) => {
+            const floats = document.querySelectorAll('.float-item');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+
+            floats.forEach((float, index) => {
+                const speed = (index + 1) * 10;
+                const xOffset = (x - 0.5) * speed;
+                const yOffset = (y - 0.5) * speed;
+                float.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
